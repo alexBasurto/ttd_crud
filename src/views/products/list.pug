@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+  if error
+    p(style="color:red;")= error
+  
+  a(href='/products/new') Nuevo Producto
+
+  section
+    if products
+      table(class="candidates-table")
+        thead
+          tr
+            th Nombre
+            th Marca
+            th PRecio
+            th Categoría
+            th Stock
+            th Acción
+        tbody
+          each product in products
+            tr
+              td= product.name
+              td= product.brand
+              td= product.price
+              td= product.category
+              td= product.stock
+              td
+                a(href='/products/'+product.idProducto+'/edit')
+                  img.actionIcon(src='/images/editIcon.png' alt='Editar')
+                a(href='/products/'+product.idProducto+'/delete')
+                  img.actionIcon(src='/images/deleteIcon.png' alt='Borrar')

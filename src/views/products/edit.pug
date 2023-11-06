@@ -1,0 +1,28 @@
+extends ../layout
+
+block content 
+    h1 Editar Ficha Producto
+    if error 
+        h2= error
+    form(action=`/products/${product.idProducto}`, method="post", enctype="multipart/form-data")
+
+            label(for="name") Nombre:
+            input(type="text", name="name", id="name" value=product.name)
+
+            label(for="brand") Marca:
+            input(type="text", name="brand", id="brand", value=product.brand)
+     
+            label(for="price") Precio:
+            input(type="text", name="price", id="price", value=product.price)
+
+            label(for="category") category:
+            input(type="text", name="category", id="category", value=product.category)
+
+            label(for="stock") Stock:
+            input(type="text", name="stock", id="stock", value=product.stock)
+
+            input(type="submit", value="Guardar") 
+            button
+                a(href='/products') Cancelar
+
+
